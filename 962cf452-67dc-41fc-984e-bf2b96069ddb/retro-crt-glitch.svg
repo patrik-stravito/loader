@@ -7,14 +7,14 @@
             <stop offset="1" style="stop-color:#BD1BBA"/>
         </linearGradient>
 
-        <!-- CRT Scanline Pattern -->
-        <pattern id="scanlines" width="4" height="4" patternUnits="userSpaceOnUse">
-            <rect width="4" height="2" fill="#000" fill-opacity="0.35" />
+        <!-- CRT Scanline Pattern (scaled up for small render) -->
+        <pattern id="scanlines" width="16" height="16" patternUnits="userSpaceOnUse">
+            <rect width="16" height="8" fill="#000" fill-opacity="0.35" />
         </pattern>
 
-        <!-- Retro 90s Wireframe Grid -->
-        <pattern id="retro-grid" width="20" height="20" patternUnits="userSpaceOnUse">
-            <path d="M 20 0 L 0 0 0 20" fill="none" stroke="#BD1BBA" stroke-width="0.75" opacity="0.3" />
+        <!-- Retro 90s Wireframe Grid (scaled up for small render) -->
+        <pattern id="retro-grid" width="80" height="80" patternUnits="userSpaceOnUse">
+            <path d="M 80 0 L 0 0 0 80" fill="none" stroke="#BD1BBA" stroke-width="1.5" opacity="0.3" />
         </pattern>
     </defs>
 
@@ -66,7 +66,7 @@
         }
 
         @keyframes scrollGrid {
-            0% { transform: translate(0, -20px); }
+            0% { transform: translate(0, -80px); }
             100% { transform: translate(0, 0); }
         }
 
@@ -83,9 +83,9 @@
         }
 
         @keyframes neon-party {
-            0% { filter: hue-rotate(0deg) drop-shadow(0 0 10px #FF3981); }
-            50% { filter: hue-rotate(90deg) drop-shadow(0 0 25px #00ffff); }
-            100% { filter: hue-rotate(360deg) drop-shadow(0 0 10px #FF3981); }
+            0% { filter: drop-shadow(0 0 10px #FF3981); }
+            50% { filter: drop-shadow(0 0 25px #FF3981); }
+            100% { filter: drop-shadow(0 0 10px #FF3981); }
         }
 
         @keyframes crt-flicker {
@@ -125,18 +125,18 @@
     </style>
 
     <!-- Scrolling Grid Background -->
-    <rect width="260" height="260" class="grid-bg" x="-10" y="-10" />
+    <rect width="320" height="320" class="grid-bg" x="-40" y="-40" />
 
     <!-- Centered Logo Graphic -->
     <g class="logo-group">
         <!-- Offset Glitch Layers -->
         <path class="glitch-cyan" d="M164.1,0v41H54.7L6.8,123.1H0v-64c0-5.5,1.5-10.8,4.2-15.5l12.8-22C24.8,8.2,39.2,0,54.7,0C54.7,0,164.1,0,164.1,0z M109.5,191.6c15.5,0,29.8-8.2,37.7-21.6l12.8-22c2.8-4.7,4.2-10.1,4.2-15.5v-64h-6.8l-47.9,82.1H0.1v41H109.5z" />
-        
+
         <path class="glitch-magenta" d="M164.1,0v41H54.7L6.8,123.1H0v-64c0-5.5,1.5-10.8,4.2-15.5l12.8-22C24.8,8.2,39.2,0,54.7,0C54.7,0,164.1,0,164.1,0z M109.5,191.6c15.5,0,29.8-8.2,37.7-21.6l12.8-22c2.8-4.7,4.2-10.1,4.2-15.5v-64h-6.8l-47.9,82.1H0.1v41H109.5z" />
-        
+
         <!-- Main Graphic Shape -->
         <path class="main-shape" d="M164.1,0v41H54.7L6.8,123.1H0v-64c0-5.5,1.5-10.8,4.2-15.5l12.8-22C24.8,8.2,39.2,0,54.7,0C54.7,0,164.1,0,164.1,0z M109.5,191.6c15.5,0,29.8-8.2,37.7-21.6l12.8-22c2.8-4.7,4.2-10.1,4.2-15.5v-64h-6.8l-47.9,82.1H0.1v41H109.5z" />
-        
+
         <!-- Cyber-Trace Wireframe -->
         <path class="wireframe" d="M164.1,0v41H54.7L6.8,123.1H0v-64c0-5.5,1.5-10.8,4.2-15.5l12.8-22C24.8,8.2,39.2,0,54.7,0C54.7,0,164.1,0,164.1,0z M109.5,191.6c15.5,0,29.8-8.2,37.7-21.6l12.8-22c2.8-4.7,4.2-10.1,4.2-15.5v-64h-6.8l-47.9,82.1H0.1v41H109.5z" />
     </g>
