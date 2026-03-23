@@ -1,84 +1,101 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 240" style="overflow:hidden;">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 240" style="background:#0a0a1a; overflow:hidden;">
     <defs>
-        <linearGradient id="rcg-grad" gradientUnits="userSpaceOnUse" x1="17.0234" y1="616.2436" x2="147.1582" y2="771.3345" gradientTransform="matrix(1 0 0 1 0 -598)">
+        <!-- Original Gradient -->
+        <linearGradient id="originalGrad" gradientUnits="userSpaceOnUse" x1="17.0234" y1="616.2436" x2="147.1582" y2="771.3345" gradientTransform="matrix(1 0 0 1 0 -598)">
             <stop offset="0" style="stop-color:#FF4B64"/>
             <stop offset="0.5" style="stop-color:#FF3981"/>
             <stop offset="1" style="stop-color:#BD1BBA"/>
         </linearGradient>
 
-        <pattern id="rcg-scanlines" width="4" height="4" patternUnits="userSpaceOnUse">
+        <!-- CRT Scanline Pattern -->
+        <pattern id="scanlines" width="4" height="4" patternUnits="userSpaceOnUse">
             <rect width="4" height="2" fill="#000" fill-opacity="0.35" />
         </pattern>
 
-        <pattern id="rcg-retro-grid" width="20" height="20" patternUnits="userSpaceOnUse">
+        <!-- Retro 90s Wireframe Grid -->
+        <pattern id="retro-grid" width="20" height="20" patternUnits="userSpaceOnUse">
             <path d="M 20 0 L 0 0 0 20" fill="none" stroke="#BD1BBA" stroke-width="0.75" opacity="0.3" />
         </pattern>
     </defs>
 
     <style>
         <![CDATA[
-        .rcg-grid-bg {
-            fill: url(#rcg-retro-grid);
-            animation: rcg-scrollGrid 1.5s linear infinite;
+        /* Moving Background Grid */
+        .grid-bg {
+            fill: url(#retro-grid);
+            animation: scrollGrid 1.5s linear infinite;
         }
-        .rcg-main {
-            fill: url(#rcg-grad);
-            animation: rcg-neon 5s infinite linear, rcg-flicker 0.12s infinite;
+
+        /* Continuous Color Shifting and Slight Flicker */
+        .main-shape {
+            fill: url(#originalGrad);
+            animation: neon-party 5s infinite linear, crt-flicker 0.12s infinite;
         }
-        .rcg-cyan {
+
+        /* Left Channel Glitch */
+        .glitch-cyan {
             fill: #00ffff;
             mix-blend-mode: screen;
-            animation: rcg-glitch1 2s infinite step-end alternate-reverse;
+            animation: glitch-anim-1 2s infinite step-end alternate-reverse;
             opacity: 0.8;
         }
-        .rcg-magenta {
+
+        /* Right Channel Glitch */
+        .glitch-magenta {
             fill: #ff00ff;
             mix-blend-mode: screen;
-            animation: rcg-glitch2 3s infinite step-start alternate-reverse;
+            animation: glitch-anim-2 3s infinite step-start alternate-reverse;
             opacity: 0.8;
         }
-        .rcg-wire {
+
+        /* Glowing Draw Effect */
+        .wireframe {
             fill: none;
             stroke: #00ffff;
             stroke-width: 2;
             stroke-dasharray: 1000;
             stroke-dashoffset: 1000;
-            animation: rcg-draw 5s ease-in-out infinite alternate;
+            animation: drawWireframe 5s ease-in-out infinite alternate;
             filter: drop-shadow(0 0 6px #00ffff);
         }
-        .rcg-group {
+
+        /* Slowly scaling the whole logo group */
+        .logo-group {
             transform-origin: center;
-            animation: rcg-bounce 4s infinite ease-in-out alternate;
+            animation: logo-bounce 4s infinite ease-in-out alternate;
         }
-        .rcg-scanline-overlay {
-            pointer-events: none;
-            fill: url(#rcg-scanlines);
-        }
-        @keyframes rcg-scrollGrid {
+
+        @keyframes scrollGrid {
             0% { transform: translate(0, -20px); }
             100% { transform: translate(0, 0); }
         }
-        @keyframes rcg-draw {
+
+        @keyframes drawWireframe {
             0% { stroke-dashoffset: 1000; opacity: 1; }
             45% { stroke-dashoffset: 0; opacity: 1; }
             55% { opacity: 0; }
             100% { stroke-dashoffset: 0; opacity: 0; }
         }
-        @keyframes rcg-bounce {
+
+        @keyframes logo-bounce {
             0% { transform: translate(38px, 24px) scale(0.95); }
             100% { transform: translate(38px, 24px) scale(1.05); }
         }
-        @keyframes rcg-neon {
+
+        @keyframes neon-party {
             0% { filter: hue-rotate(0deg) drop-shadow(0 0 10px #FF3981); }
             50% { filter: hue-rotate(90deg) drop-shadow(0 0 25px #00ffff); }
             100% { filter: hue-rotate(360deg) drop-shadow(0 0 10px #FF3981); }
         }
-        @keyframes rcg-flicker {
+
+        @keyframes crt-flicker {
             0% { opacity: 0.90; }
             50% { opacity: 0.85; }
             100% { opacity: 1; }
         }
-        @keyframes rcg-glitch1 {
+
+        /* Chunky Tracking Errors */
+        @keyframes glitch-anim-1 {
             0% { transform: translate(0, 0); }
             10% { transform: translate(-6px, 4px) skewX(15deg); }
             15% { transform: translate(0, 0) skewX(0); }
@@ -88,7 +105,8 @@
             65% { transform: translate(0, 0); }
             100% { transform: translate(0, 0); }
         }
-        @keyframes rcg-glitch2 {
+
+        @keyframes glitch-anim-2 {
             0% { transform: translate(0, 0); }
             15% { transform: translate(7px, -5px) skewX(-15deg); }
             20% { transform: translate(0, 0) skewX(0); }
@@ -98,20 +116,31 @@
             80% { transform: translate(0, 0); }
             100% { transform: translate(0, 0); }
         }
+
+        .scanline-overlay {
+            pointer-events: none;
+            fill: url(#scanlines);
+        }
         ]]>
     </style>
 
     <!-- Scrolling Grid Background -->
-    <rect width="260" height="260" class="rcg-grid-bg" x="-10" y="-10" />
+    <rect width="260" height="260" class="grid-bg" x="-10" y="-10" />
 
     <!-- Centered Logo Graphic -->
-    <g class="rcg-group">
-        <path class="rcg-cyan" d="M164.1,0v41H54.7L6.8,123.1H0v-64c0-5.5,1.5-10.8,4.2-15.5l12.8-22C24.8,8.2,39.2,0,54.7,0C54.7,0,164.1,0,164.1,0z M109.5,191.6c15.5,0,29.8-8.2,37.7-21.6l12.8-22c2.8-4.7,4.2-10.1,4.2-15.5v-64h-6.8l-47.9,82.1H0.1v41H109.5z"/>
-        <path class="rcg-magenta" d="M164.1,0v41H54.7L6.8,123.1H0v-64c0-5.5,1.5-10.8,4.2-15.5l12.8-22C24.8,8.2,39.2,0,54.7,0C54.7,0,164.1,0,164.1,0z M109.5,191.6c15.5,0,29.8-8.2,37.7-21.6l12.8-22c2.8-4.7,4.2-10.1,4.2-15.5v-64h-6.8l-47.9,82.1H0.1v41H109.5z"/>
-        <path class="rcg-main" d="M164.1,0v41H54.7L6.8,123.1H0v-64c0-5.5,1.5-10.8,4.2-15.5l12.8-22C24.8,8.2,39.2,0,54.7,0C54.7,0,164.1,0,164.1,0z M109.5,191.6c15.5,0,29.8-8.2,37.7-21.6l12.8-22c2.8-4.7,4.2-10.1,4.2-15.5v-64h-6.8l-47.9,82.1H0.1v41H109.5z"/>
-        <path class="rcg-wire" d="M164.1,0v41H54.7L6.8,123.1H0v-64c0-5.5,1.5-10.8,4.2-15.5l12.8-22C24.8,8.2,39.2,0,54.7,0C54.7,0,164.1,0,164.1,0z M109.5,191.6c15.5,0,29.8-8.2,37.7-21.6l12.8-22c2.8-4.7,4.2-10.1,4.2-15.5v-64h-6.8l-47.9,82.1H0.1v41H109.5z"/>
+    <g class="logo-group">
+        <!-- Offset Glitch Layers -->
+        <path class="glitch-cyan" d="M164.1,0v41H54.7L6.8,123.1H0v-64c0-5.5,1.5-10.8,4.2-15.5l12.8-22C24.8,8.2,39.2,0,54.7,0C54.7,0,164.1,0,164.1,0z M109.5,191.6c15.5,0,29.8-8.2,37.7-21.6l12.8-22c2.8-4.7,4.2-10.1,4.2-15.5v-64h-6.8l-47.9,82.1H0.1v41H109.5z" />
+        
+        <path class="glitch-magenta" d="M164.1,0v41H54.7L6.8,123.1H0v-64c0-5.5,1.5-10.8,4.2-15.5l12.8-22C24.8,8.2,39.2,0,54.7,0C54.7,0,164.1,0,164.1,0z M109.5,191.6c15.5,0,29.8-8.2,37.7-21.6l12.8-22c2.8-4.7,4.2-10.1,4.2-15.5v-64h-6.8l-47.9,82.1H0.1v41H109.5z" />
+        
+        <!-- Main Graphic Shape -->
+        <path class="main-shape" d="M164.1,0v41H54.7L6.8,123.1H0v-64c0-5.5,1.5-10.8,4.2-15.5l12.8-22C24.8,8.2,39.2,0,54.7,0C54.7,0,164.1,0,164.1,0z M109.5,191.6c15.5,0,29.8-8.2,37.7-21.6l12.8-22c2.8-4.7,4.2-10.1,4.2-15.5v-64h-6.8l-47.9,82.1H0.1v41H109.5z" />
+        
+        <!-- Cyber-Trace Wireframe -->
+        <path class="wireframe" d="M164.1,0v41H54.7L6.8,123.1H0v-64c0-5.5,1.5-10.8,4.2-15.5l12.8-22C24.8,8.2,39.2,0,54.7,0C54.7,0,164.1,0,164.1,0z M109.5,191.6c15.5,0,29.8-8.2,37.7-21.6l12.8-22c2.8-4.7,4.2-10.1,4.2-15.5v-64h-6.8l-47.9,82.1H0.1v41H109.5z" />
     </g>
 
     <!-- Foreground Scanlines overlay -->
-    <rect width="100%" height="100%" class="rcg-scanline-overlay" />
+    <rect width="100%" height="100%" class="scanline-overlay" />
 </svg>
