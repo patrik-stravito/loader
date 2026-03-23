@@ -1,0 +1,90 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" style="overflow:hidden;">
+  <defs>
+    <linearGradient id="rcg-grad" gradientUnits="userSpaceOnUse" x1="17.0234" y1="616.2436" x2="147.1582" y2="771.3345" gradientTransform="matrix(1 0 0 1 0 -598)">
+      <stop offset="0" style="stop-color:#FF4B64"/>
+      <stop offset="0.5" style="stop-color:#FF3981"/>
+      <stop offset="1" style="stop-color:#BD1BBA"/>
+    </linearGradient>
+  </defs>
+
+  <style>
+    <![CDATA[
+    .rcg-main {
+      fill: url(#rcg-grad);
+      animation: rcg-neon 5s infinite linear, rcg-flicker 0.12s infinite;
+    }
+    .rcg-cyan {
+      fill: #00ffff;
+      mix-blend-mode: screen;
+      animation: rcg-glitch1 2s infinite step-end alternate-reverse;
+      opacity: 0.8;
+    }
+    .rcg-magenta {
+      fill: #ff00ff;
+      mix-blend-mode: screen;
+      animation: rcg-glitch2 3s infinite step-start alternate-reverse;
+      opacity: 0.8;
+    }
+    .rcg-wire {
+      fill: none;
+      stroke: #00ffff;
+      stroke-width: 2;
+      stroke-dasharray: 1000;
+      stroke-dashoffset: 1000;
+      animation: rcg-draw 5s ease-in-out infinite alternate;
+      filter: drop-shadow(0 0 6px #00ffff);
+    }
+    .rcg-group {
+      transform-origin: center;
+      animation: rcg-bounce 4s infinite ease-in-out alternate;
+    }
+    @keyframes rcg-draw {
+      0% { stroke-dashoffset: 1000; opacity: 1; }
+      45% { stroke-dashoffset: 0; opacity: 1; }
+      55% { opacity: 0; }
+      100% { stroke-dashoffset: 0; opacity: 0; }
+    }
+    @keyframes rcg-bounce {
+      0% { transform: translate(18px, 4px) scale(0.95); }
+      100% { transform: translate(18px, 4px) scale(1.05); }
+    }
+    @keyframes rcg-neon {
+      0% { filter: hue-rotate(0deg) drop-shadow(0 0 10px #FF3981); }
+      50% { filter: hue-rotate(90deg) drop-shadow(0 0 25px #00ffff); }
+      100% { filter: hue-rotate(360deg) drop-shadow(0 0 10px #FF3981); }
+    }
+    @keyframes rcg-flicker {
+      0% { opacity: 0.90; }
+      50% { opacity: 0.85; }
+      100% { opacity: 1; }
+    }
+    @keyframes rcg-glitch1 {
+      0% { transform: translate(0, 0); }
+      10% { transform: translate(-6px, 4px) skewX(15deg); }
+      15% { transform: translate(0, 0) skewX(0); }
+      30% { transform: translate(5px, -3px); }
+      35% { transform: translate(0, 0); }
+      60% { transform: translate(-4px, 6px); }
+      65% { transform: translate(0, 0); }
+      100% { transform: translate(0, 0); }
+    }
+    @keyframes rcg-glitch2 {
+      0% { transform: translate(0, 0); }
+      15% { transform: translate(7px, -5px) skewX(-15deg); }
+      20% { transform: translate(0, 0) skewX(0); }
+      45% { transform: translate(-6px, 3px); }
+      50% { transform: translate(0, 0); }
+      75% { transform: translate(4px, -6px); }
+      80% { transform: translate(0, 0); }
+      100% { transform: translate(0, 0); }
+    }
+    ]]>
+  </style>
+
+  <g class="rcg-group">
+    <path class="rcg-cyan" d="M164.1,0v41H54.7L6.8,123.1H0v-64c0-5.5,1.5-10.8,4.2-15.5l12.8-22C24.8,8.2,39.2,0,54.7,0C54.7,0,164.1,0,164.1,0z M109.5,191.6c15.5,0,29.8-8.2,37.7-21.6l12.8-22c2.8-4.7,4.2-10.1,4.2-15.5v-64h-6.8l-47.9,82.1H0.1v41H109.5z"/>
+    <path class="rcg-magenta" d="M164.1,0v41H54.7L6.8,123.1H0v-64c0-5.5,1.5-10.8,4.2-15.5l12.8-22C24.8,8.2,39.2,0,54.7,0C54.7,0,164.1,0,164.1,0z M109.5,191.6c15.5,0,29.8-8.2,37.7-21.6l12.8-22c2.8-4.7,4.2-10.1,4.2-15.5v-64h-6.8l-47.9,82.1H0.1v41H109.5z"/>
+    <path class="rcg-main" d="M164.1,0v41H54.7L6.8,123.1H0v-64c0-5.5,1.5-10.8,4.2-15.5l12.8-22C24.8,8.2,39.2,0,54.7,0C54.7,0,164.1,0,164.1,0z M109.5,191.6c15.5,0,29.8-8.2,37.7-21.6l12.8-22c2.8-4.7,4.2-10.1,4.2-15.5v-64h-6.8l-47.9,82.1H0.1v41H109.5z"/>
+    <path class="rcg-wire" d="M164.1,0v41H54.7L6.8,123.1H0v-64c0-5.5,1.5-10.8,4.2-15.5l12.8-22C24.8,8.2,39.2,0,54.7,0C54.7,0,164.1,0,164.1,0z M109.5,191.6c15.5,0,29.8-8.2,37.7-21.6l12.8-22c2.8-4.7,4.2-10.1,4.2-15.5v-64h-6.8l-47.9,82.1H0.1v41H109.5z"/>
+  </g>
+</svg>
