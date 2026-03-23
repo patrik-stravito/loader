@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
+  <defs>
+    <linearGradient id="kg-SVGID_1_" gradientUnits="userSpaceOnUse" x1="0" y1="96" x2="164" y2="96">
+      <stop offset="0" style="stop-color:#E40046"/>
+      <stop offset="1" style="stop-color:#FF6B00"/>
+    </linearGradient>
+    <!-- Centered gradient for glitch layers (centered at 0,0) -->
+    <linearGradient id="kg-SVGID_1c_" gradientUnits="userSpaceOnUse" x1="-82" y1="0" x2="82" y2="0">
+      <stop offset="0" style="stop-color:#E40046"/>
+      <stop offset="1" style="stop-color:#FF6B00"/>
+    </linearGradient>
+  </defs>
+
+  <g transform="translate(18, 4)">
+    <!-- Base filled icon at 0.8 opacity -->
+    <g fill="url(#kg-SVGID_1_)" opacity="0.8">
+      <path d="M164.1,0v41H54.7L6.8,123.1H0v-64c0-5.5,1.5-10.8,4.2-15.5l12.8-22C24.8,8.2,39.2,0,54.7,0C54.7,0,164.1,0,164.1,0z"/>
+      <path d="M109.5,191.6c15.5,0,29.8-8.2,37.7-21.6l12.8-22c2.8-4.7,4.2-10.1,4.2-15.5v-64h-6.8l-47.9,82.1H0.1v41H109.5z"/>
+    </g>
+
+    <!-- Glitch layer A: only partA, centered then repositioned -->
+    <g opacity="0.7" style="mix-blend-mode: screen;" transform="translate(82, 96)">
+      <animateTransform attributeName="transform" type="translate" values="0,0; -15,5; 20,-10; -5,15; 0,0" keyTimes="0; 0.1; 0.2; 0.3; 1" dur="2s" repeatCount="indefinite" additive="sum"/>
+      <path fill="url(#kg-SVGID_1_)" transform="translate(-82, -96)" d="M164.1,0v41H54.7L6.8,123.1H0v-64c0-5.5,1.5-10.8,4.2-15.5l12.8-22C24.8,8.2,39.2,0,54.7,0C54.7,0,164.1,0,164.1,0z"/>
+    </g>
+
+    <!-- Glitch layer B: only partB, centered then repositioned -->
+    <g opacity="0.7" style="mix-blend-mode: screen;" transform="translate(82, 96)">
+      <animateTransform attributeName="transform" type="translate" values="0,0; 15,-5; -20,10; 5,-15; 0,0" keyTimes="0; 0.1; 0.2; 0.3; 1" dur="2s" repeatCount="indefinite" additive="sum"/>
+      <path fill="url(#kg-SVGID_1_)" transform="translate(-82, -96)" d="M109.5,191.6c15.5,0,29.8-8.2,37.7-21.6l12.8-22c2.8-4.7,4.2-10.1,4.2-15.5v-64h-6.8l-47.9,82.1H0.1v41H109.5z"/>
+    </g>
+  </g>
+</svg>

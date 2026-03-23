@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
+  <defs>
+    <linearGradient id="nt-SVGID_1_" gradientUnits="userSpaceOnUse" x1="0" y1="96" x2="164" y2="96">
+      <stop offset="0" style="stop-color:#E40046"/>
+      <stop offset="1" style="stop-color:#FF6B00"/>
+    </linearGradient>
+  </defs>
+
+  <g transform="translate(18, 4)">
+    <!-- Line icon (both parts as outlines) with stroke-dash animation -->
+    <g fill="none" stroke="url(#nt-SVGID_1_)" stroke-width="4" stroke-dasharray="800" stroke-dashoffset="800">
+      <animate attributeName="stroke-dashoffset" values="800; 0; 800" dur="3.5s" repeatCount="indefinite"/>
+      <path d="M164.1,0v41H54.7L6.8,123.1H0v-64c0-5.5,1.5-10.8,4.2-15.5l12.8-22C24.8,8.2,39.2,0,54.7,0C54.7,0,164.1,0,164.1,0z"/>
+      <path d="M109.5,191.6c15.5,0,29.8-8.2,37.7-21.6l12.8-22c2.8-4.7,4.2-10.1,4.2-15.5v-64h-6.8l-47.9,82.1H0.1v41H109.5z"/>
+    </g>
+
+    <!-- Filled icon that flashes in after trace completes -->
+    <g fill="url(#nt-SVGID_1_)" opacity="0">
+      <animate attributeName="opacity" values="0; 0; 1; 0" keyTimes="0; 0.45; 0.5; 1" dur="3.5s" repeatCount="indefinite"/>
+      <path d="M164.1,0v41H54.7L6.8,123.1H0v-64c0-5.5,1.5-10.8,4.2-15.5l12.8-22C24.8,8.2,39.2,0,54.7,0C54.7,0,164.1,0,164.1,0z"/>
+      <path d="M109.5,191.6c15.5,0,29.8-8.2,37.7-21.6l12.8-22c2.8-4.7,4.2-10.1,4.2-15.5v-64h-6.8l-47.9,82.1H0.1v41H109.5z"/>
+    </g>
+  </g>
+</svg>
